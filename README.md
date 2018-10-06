@@ -1,3 +1,4 @@
 # Hacks for Humanity Hackathon Project
 
-## The purpose of the project is to provide a platform for artists to better collaborate, self-organize, and plan meetings, rehearsals, and performances.
+## Mobile Stage 
+The purpose of the project is to provide a platform for artists to better collaborate, self-organize, and plan meetings, rehearsals, and performances.
