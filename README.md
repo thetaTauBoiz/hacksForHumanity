@@ -1,14 +1,3 @@
 # Hacks for Humanity Hackathon Project
 
-## Ideas
-
-* just open the README.md file in a text editor and
-* insert
-* ideas
-* in
-* bullet
-* points
-* like
-* this
-
-*We are Team 14
+## The purpose of the project is to provide a platform for artists to better collaborate, self-organize, and plan meetings, rehearsals, and performances.
