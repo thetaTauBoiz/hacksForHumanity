@@ -32,6 +32,66 @@ public class Database {
 		
 		return null;
 	}
+
+    public static DataMember queryDescription(String query) {
+        for (DataMember b : data) {
+            if (query.equals(b.description)) {
+                return b;
+            }
+        }
+
+        return null;
+    }
+
+    public static DataMember queryaddress(String query) {
+        for (DataMember b : data) {
+            if (query.equals(b.address)) {
+                return b;
+            }
+        }
+
+        return null;
+    }
+
+    public static DataMember queryOpName(String query) {
+        for (DataMember b : data) {
+            if (query.equals(b.operatorName)) {
+                return b;
+            }
+        }
+
+        return null;
+    }
+
+    public static DataMember queryPhoneNumber(String query) {
+        for (DataMember b : data) {
+            if (query.equals(b.phoneNumber)) {
+                return b;
+            }
+        }
+
+        return null;
+    }
+
+    public static DataMember queryEmail(String query) {
+        for (DataMember b : data) {
+            if (query.equals(b.email)) {
+                return b;
+            }
+        }
+
+        return null;
+    }
+
+    public static DataMember queryVenueType(String query) {
+        for (DataMember b : data) {
+            if (query.equals(b.venueType)) {
+                return b;
+            }
+        }
+
+        return null;
+    }
 }
 
 class DataMember {
