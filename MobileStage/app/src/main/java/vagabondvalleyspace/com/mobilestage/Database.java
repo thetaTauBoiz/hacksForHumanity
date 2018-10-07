@@ -3,13 +3,23 @@ package vagabondvalleyspace.com.mobilestage;
 import java.util.ArrayList;
 
 public class Database {
-    private ArrayList<DataMember> data;
+    private static ArrayList<DataMember> data;
 
     private Database() {
         data = new ArrayList<>();
 
         data.add(new DataMember("Venue", "This is a venue", "1234 St St", "Joe Schmoe", "4805323452", "first.last@someone.com", "Music Performance"));
     }
+	
+	public static DataMember queryName(String query) {
+		for (DataMember b : data) {
+			if (query.equals(b.name)) {
+				return b;
+			}
+		}
+		
+		return null;
+	}
 }
 
 class DataMember {
