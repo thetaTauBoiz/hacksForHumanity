@@ -11,7 +11,7 @@ public class ResponseActivity extends AppCompatActivity {
         setContentView(R.layout.activity_response);
 
         Intent intent = getIntent();
-        String message = intent.getStringExtra(SubmitListener.EXTRA_MESSAGE);
+        String message = intent.getStringExtra(SubmitListener.MESSAGE_ADDR);
 
         result = (TextView) findViewById(R.id.result);
         result.setText(message);
