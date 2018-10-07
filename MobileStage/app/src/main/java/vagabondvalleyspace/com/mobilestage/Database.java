@@ -10,6 +10,16 @@ public class Database {
 
         data.add(new DataMember("3 miles from you", "Venue", "This is a venue", "1234 St St", "Joe Schmoe", "4805323452", "first.last@someone.com", "Music Performance"));
     }
+
+    public static DataMember queryRadius(String query) {
+        for (DataMember b : data) {
+            if (query.equals(b.radius)) {
+                return b;
+            }
+        }
+
+        return null;
+    }
 	
 	public static DataMember queryName(String query) {
 		for (DataMember b : data) {

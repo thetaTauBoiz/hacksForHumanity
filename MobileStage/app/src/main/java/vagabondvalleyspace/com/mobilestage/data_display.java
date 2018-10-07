@@ -35,22 +35,9 @@ public class data_display extends AppCompatActivity {
 
         Intent intent = getIntent();
 
-        DataMember dm = null;
         Database.setupDatabase();
 
-        for (HashMap.Entry<String, Integer> entry : outputMap.entrySet()) {
-            String key = entry.getKey();
-
-            if (intent.hasExtra(key)) {
-                String message = intent.getStringExtra(key);
-                if (message != "") {
-                    if (key.equals("venueName")) {
-                        dm = Database.queryName(message);
-                        break;
-                    }
-                }
-            }
-        }
+        DataMember dm = getDataBy(intent, "searchRadius");
 
         if (dm != null) {
             TextView radius = (TextView) findViewById(outputMap.get("searchRadius"));
@@ -74,6 +61,23 @@ public class data_display extends AppCompatActivity {
 
         returnButton = (Button) findViewById(R.id.returnButton);
         returnButton.setOnClickListener(new BackButtonListener(this));
+    }
+
+    private DataMember getDataBy(Intent intent, String field) {
+        for (HashMap.Entry<String, Integer> entry : outputMap.entrySet()) {
+            String key = entry.getKey();
+
+            if (intent.hasExtra(key)) {
+                String message = intent.getStringExtra(key);
+                if (message != "") {
+                    if (key.equals(field)) {
+                        return Database.queryName(message);
+                    }
+                }
+            }
+        }
+
+        return null;
     }
 
     private void alert(String msg) {
