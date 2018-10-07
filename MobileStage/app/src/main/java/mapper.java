@@ -58,6 +58,7 @@ public class mapper {
             "  } ]\n" +
             "}\"";
 
+    //public static String[] table = {"Arizona State University, Tempe Campus","Spokes On Southern","Nowhere"};
     public static String[][] table = {{"Arizona State University, Tempe Campus","0",},{"Spokes On Southern","4960"},{"Nowhere","25000"}};
 
     public static final double CON = 1609.34;
@@ -66,7 +67,11 @@ public class mapper {
     {
         try
         {
-            double rad = 3.5*CON;
+            Scanner reader = new Scanner(System.in);  // Reading from System.in
+            System.out.println("Enter an X-mile radius to search: ");
+            int n = reader.nextInt(); // Scans the next token of the input as an int.
+            reader.close();
+            double rad = n*CON;
             List<String> Names = new ArrayList<String>();
             //List<String[]> Names = new ArrayList<String[]>;
             for(int i = 0; i<table.length; i++)
@@ -79,7 +84,6 @@ public class mapper {
             {
                 System.out.println(Names.get(j));
             }
-            //System.out.println(getDistance(41.43206,-81.38992,"Seattle WA"));
         } catch(Exception e)
         {
             return;
