@@ -6,6 +6,7 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import java.util.HashMap;
@@ -37,30 +38,41 @@ public class data_display extends AppCompatActivity {
 
         Database.setupDatabase();
 
-        DataMember dm = getDataBy(intent, "searchRadius");
+        DataMember dm1 = getDataBy(intent, "venueName");
+        DataMember dm2 = getDataBy(intent, "searchRadius");
 
-        if (dm != null) {
-            TextView radius = (TextView) findViewById(outputMap.get("searchRadius"));
-            TextView venueName = (TextView) findViewById(outputMap.get("venueName"));
-            TextView description = (TextView) findViewById(outputMap.get("description"));
-            TextView address = (TextView) findViewById(outputMap.get("address"));
-            TextView opName = (TextView) findViewById(outputMap.get("opName"));
-            TextView phoneNumber = (TextView) findViewById(outputMap.get("phoneNumber"));
-            TextView email = (TextView) findViewById(outputMap.get("email"));
-            TextView venueType = (TextView) findViewById(outputMap.get("venueType"));
-
-            radius.setText(dm.radius);
-            venueName.setText(dm.name);
-            description.setText(dm.description);
-            address.setText(dm.address);
-            opName.setText(dm.operatorName);
-            phoneNumber.setText(dm.phoneNumber);
-            email.setText(dm.email);
-            venueType.setText(dm.venueType);
+        if (dm1 != null && dm2 == null) {
+            displayData(dm1);
+        }
+        else if (dm1 == null && dm2 != null) {
+            displayData(dm2);
+        }
+        else if (dm1 != null && dm2 == dm1) {
+            displayData(dm1);
         }
 
         returnButton = (Button) findViewById(R.id.returnButton);
         returnButton.setOnClickListener(new BackButtonListener(this));
+    }
+
+    private void displayData(DataMember dm1) {
+        TextView radius = (TextView) findViewById(outputMap.get("searchRadius"));
+        TextView venueName = (TextView) findViewById(outputMap.get("venueName"));
+        TextView description = (TextView) findViewById(outputMap.get("description"));
+        TextView address = (TextView) findViewById(outputMap.get("address"));
+        TextView opName = (TextView) findViewById(outputMap.get("opName"));
+        TextView phoneNumber = (TextView) findViewById(outputMap.get("phoneNumber"));
+        TextView email = (TextView) findViewById(outputMap.get("email"));
+        EditText venueType = (EditText) findViewById(outputMap.get("venueType"));
+
+        radius.setText(dm1.radius);
+        venueName.setText(dm1.name);
+        description.setText(dm1.description);
+        address.setText(dm1.address);
+        opName.setText(dm1.operatorName);
+        phoneNumber.setText(dm1.phoneNumber);
+        email.setText(dm1.email);
+        venueType.setText(dm1.venueType);
     }
 
     private DataMember getDataBy(Intent intent, String field) {
@@ -76,7 +88,7 @@ public class data_display extends AppCompatActivity {
 							case "venueName": return Database.queryName(message);
 							case "description": return Database.queryDescription(message);
 							case "address": return Database.queryAddress(message);
-							case "opName": return Database.queryOperatorName(message);
+							case "opName": return Database.queryOpName(message);
 							case "phoneNumber": return Database.queryPhoneNumber(message);
 							case "email": return Database.queryEmail(message);
 							case "venueType": return Database.queryVenueType(message);

@@ -43,7 +43,7 @@ public class Database {
         return null;
     }
 
-    public static DataMember queryaddress(String query) {
+    public static DataMember queryAddress(String query) {
         for (DataMember b : data) {
             if (query.equals(b.address)) {
                 return b;
