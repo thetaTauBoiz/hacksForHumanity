@@ -8,7 +8,7 @@ public class Database {
     private Database() {
         data = new ArrayList<>();
 
-        data.add(new DataMember("Venue", "This is a venue", "1234 St St", "Joe Schmoe", "4805323452", "first.last@someone.com", "Music Performance"));
+        data.add(new DataMember("3 miles from you", "Venue", "This is a venue", "1234 St St", "Joe Schmoe", "4805323452", "first.last@someone.com", "Music Performance"));
     }
 	
 	public static DataMember queryName(String query) {
@@ -23,6 +23,7 @@ public class Database {
 }
 
 class DataMember {
+	public String radius;
     public String name;
     public String description;
     public String address;
