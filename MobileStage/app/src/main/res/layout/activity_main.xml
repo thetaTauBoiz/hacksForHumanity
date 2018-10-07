@@ -6,9 +6,25 @@
     android:layout_height="match_parent"
     tools:context="vagabondvalleyspace.com.mobilestage.MainActivity">
 
+    <Button
+        android:id="@+id/search"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="Search"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scrollView2"
+        app:layout_constraintVertical_bias="1.0" />
+
     <ScrollView
+        android:id="@+id/scrollView2"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="438dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
@@ -26,7 +42,7 @@
             android:orientation="vertical">
 
             <SearchView
-                android:id="@+id/searchView"
+                android:id="@+id/radius"
                 android:layout_width="368dp"
                 android:layout_height="62dp"
                 android:layout_marginStart="8dp"
@@ -42,7 +58,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <SearchView
-                android:id="@+id/searchView2"
+                android:id="@+id/venueName"
                 android:layout_width="368dp"
                 android:layout_height="62dp"
                 android:layout_marginStart="8dp"
@@ -55,10 +71,10 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/searchView" />
+                app:layout_constraintTop_toBottomOf="@+id/radius" />
 
             <SearchView
-                android:id="@+id/searchView4"
+                android:id="@+id/description"
                 android:layout_width="368dp"
                 android:layout_height="62dp"
                 android:layout_marginStart="8dp"
@@ -71,10 +87,10 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/searchView2" />
+                app:layout_constraintTop_toBottomOf="@+id/venueName" />
 
             <SearchView
-                android:id="@+id/searchView5"
+                android:id="@+id/address"
                 android:layout_width="368dp"
                 android:layout_height="62dp"
                 android:layout_marginStart="8dp"
@@ -87,9 +103,10 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/searchView4" />
+                app:layout_constraintTop_toBottomOf="@+id/description" />
 
             <SearchView
+                android:id="@+id/operatorName"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginStart="8dp"
@@ -102,11 +119,12 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/searchView5">
+                app:layout_constraintTop_toBottomOf="@+id/address">
 
             </SearchView>
 
             <SearchView
+                android:id="@+id/phoneNumber"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginStart="8dp"
@@ -119,11 +137,12 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/searchView5">
+                app:layout_constraintTop_toBottomOf="@+id/address">
 
             </SearchView>
 
             <SearchView
+                android:id="@+id/email"
                 android:layout_width="368dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
@@ -136,11 +155,12 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/searchView5">
+                app:layout_constraintTop_toBottomOf="@+id/address">
 
             </SearchView>
 
             <SearchView
+                android:id="@+id/venueType"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginStart="8dp"
@@ -153,7 +173,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/searchView5">
+                app:layout_constraintTop_toBottomOf="@+id/address">
 
             </SearchView>
         </LinearLayout>
