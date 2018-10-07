@@ -5,6 +5,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.SearchView;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.util.HashMap;
 
 public class SubmitListener implements View.OnClickListener {
@@ -28,6 +31,11 @@ public class SubmitListener implements View.OnClickListener {
 		for (HashMap.Entry<String, SearchView> entry : dataFieldMap.entrySet()) {
 			intent.putExtra(entry.getKey(), entry.getValue().getQuery().toString());
 		}
+
+		FirebaseDatabase database = FirebaseDatabase.getInstance();
+		DatabaseReference myRef = database.getReference("message");
+
+		myRef.push().setValue("Hello, World!");
 
 		activity.startActivity(intent);
 	}

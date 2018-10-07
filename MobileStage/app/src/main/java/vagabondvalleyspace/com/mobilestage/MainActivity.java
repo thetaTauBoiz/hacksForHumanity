@@ -10,6 +10,9 @@ import android.widget.EditText;
 import android.widget.SearchView;
 import android.widget.TextView;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 public class MainActivity extends AppCompatActivity {
 	
 
@@ -49,9 +52,5 @@ public class MainActivity extends AppCompatActivity {
         subListener.addDataField("venueType", venueType);
 
 		submit.setOnClickListener(subListener);
-		
-
     }
-
-
 }
