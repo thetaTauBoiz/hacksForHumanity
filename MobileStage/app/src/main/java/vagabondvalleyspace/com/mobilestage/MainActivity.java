@@ -1,29 +1,27 @@
 package vagabondvalleyspace.com.mobilestage;
 
+import android.app.Activity;
+import android.content.DialogInterface;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.SearchView;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 	
-	private final String ALERT_MSG = "Mobile Stage";
+
 	private Button submit;
     private SearchView searchRadius;
-	
-	private void alert(String msg) {
-	AlertDialog alertDialog = new AlertDialog.Builder(InputActivity.this).create();
-	alertDialog.setTitle(ALERT_MSG);
-	alertDialog.setMessage(msg);
-	alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
-			new DialogInterface.OnClickListener() {
-				public void onClick(DialogInterface dialog, int which) {
-					dialog.dismiss();
-				}
-			});
-	alertDialog.show();
-    }
-
+    private SearchView venueName;
+    private SearchView description;
+    private SearchView address;
+    private SearchView opName;
+    private SearchView phoneNumber;
+    private SearchView email;
+    private SearchView venueType;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,11 +30,27 @@ public class MainActivity extends AppCompatActivity {
 		
 		submit = (Button) findViewById(R.id.search);
 		searchRadius = (SearchView) findViewById(R.id.radius);
+        venueName = (SearchView) findViewById(R.id.venueName);
+        description = (SearchView) findViewById(R.id.description);
+        address = (SearchView) findViewById(R.id.address);
+        opName = (SearchView) findViewById(R.id.opName);
+        phoneNumber = (SearchView) findViewById(R.id.phoneNumber);
+        email = (SearchView) findViewById(R.id.email);
+        venueType = (SearchView) findViewById(R.id.venueType);
+
+        SubmitListener subListener = new SubmitListener(this);
+        subListener.addDataField("searchRadius", searchRadius);
+        subListener.addDataField("address", address);
+        subListener.addDataField("description", description);
+        subListener.addDataField("venueName", venueName);
+        subListener.addDataField("opName", opName);
+        subListener.addDataField("phoneNumber", phoneNumber);
+        subListener.addDataField("email", email);
+        subListener.addDataField("venueType", venueType);
+
+		submit.setOnClickListener(subListener);
 		
-		submit.setOnClickListener(new SubmitListener(this, "ABC"));
-		
-		alert("Test");
-		alert(String.valueOf(searchRadius.getQuery()));
+
     }
 
 
