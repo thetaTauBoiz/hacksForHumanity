@@ -1,5 +1,7 @@
 import java.net.URL;
 import java.net.URLEncoder;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class mapper {
@@ -56,18 +58,35 @@ public class mapper {
             "  } ]\n" +
             "}\"";
 
+    public static String[][] table = {{"Arizona State University, Tempe Campus","0",},{"Spokes On Southern","4960"},{"Nowhere","25000"}};
+
+    public static final double CON = 1609.34;
+
     public static void main(String args[]) //Test Case dummy input
     {
         try
         {
-            System.out.println(getDistance(41.43206,-81.38992,"Seattle WA"));
+            double rad = 3.5*CON;
+            List<String> Names = new ArrayList<String>();
+            //List<String[]> Names = new ArrayList<String[]>;
+            for(int i = 0; i<table.length; i++)
+            {
+                //if (getDistance(41.43206,-81.38992,table[i])>rad)
+                if (Integer.parseInt(table[i][1])<rad)
+                        Names.add(table[i][0]);
+            }
+            for (int j=0; Names.get(j) != null; j++)
+            {
+                System.out.println(Names.get(j));
+            }
+            //System.out.println(getDistance(41.43206,-81.38992,"Seattle WA"));
         } catch(Exception e)
         {
-            System.out.println("Error");
+            return;
         }
     }
 
-    public static double getDistance(double lat, double log, String end) throws Exception {
+    public static int getDistance(double lat, double log, String end) throws Exception {
         // build a URL
         String s = "https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial";
         s += "&origins=";
@@ -95,9 +114,6 @@ public class mapper {
         {
             lines = test.split("distance")[1].split("\n");
         }
-        double d;
-        int i = Integer.parseInt(lines[2].substring(lines[2].indexOf(":")+2, lines[2].length()-1));
-        d = i/1609.34;
-        return d*10;
+        return Integer.parseInt(lines[2].substring(lines[2].indexOf(":")+2, lines[2].length()-1));
     }
 }
