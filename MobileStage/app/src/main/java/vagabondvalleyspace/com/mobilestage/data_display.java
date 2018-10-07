@@ -71,7 +71,17 @@ public class data_display extends AppCompatActivity {
                 String message = intent.getStringExtra(key);
                 if (message != "") {
                     if (key.equals(field)) {
-                        return Database.queryName(message);
+						switch (key) {							
+							case "searchRadius": return Database.queryRadius(message);
+							case "venueName": return Database.queryName(message);
+							case "description": return Database.queryDescription(message);
+							case "address": return Database.queryAddress(message);
+							case "opName": return Database.queryOperatorName(message);
+							case "phoneNumber": return Database.queryPhoneNumber(message);
+							case "email": return Database.queryEmail(message);
+							case "venueType": return Database.queryVenueType(message);
+							default: return null;
+						}
                     }
                 }
             }
