@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Database {
     private static ArrayList<DataMember> data;
 
-    private Database() {
+    public static void setupDatabase() {
         data = new ArrayList<>();
 
         data.add(new DataMember("3 miles from you", "Venue", "This is a venue", "1234 St St", "Joe Schmoe", "4805323452", "first.last@someone.com", "Music Performance"));
@@ -32,7 +32,8 @@ class DataMember {
     public String email;
     public String venueType;
 
-    public DataMember(String name, String description, String address, String operatorName, String phoneNumber, String email, String venueType) {
+    public DataMember(String radius, String name, String description, String address, String operatorName, String phoneNumber, String email, String venueType) {
+        this.radius = radius;
         this.name = name;
         this.description = description;
         this.address = address;

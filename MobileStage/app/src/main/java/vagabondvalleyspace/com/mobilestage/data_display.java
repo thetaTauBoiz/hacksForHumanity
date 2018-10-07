@@ -36,6 +36,7 @@ public class data_display extends AppCompatActivity {
         Intent intent = getIntent();
 
         DataMember dm = null;
+        Database.setupDatabase();
 
         for (HashMap.Entry<String, Integer> entry : outputMap.entrySet()) {
             String key = entry.getKey();
@@ -52,16 +53,23 @@ public class data_display extends AppCompatActivity {
         }
 
         if (dm != null) {
-            TextView radius = (TextView) findViewById(outputMap.get("radius"));
+            TextView radius = (TextView) findViewById(outputMap.get("searchRadius"));
             TextView venueName = (TextView) findViewById(outputMap.get("venueName"));
             TextView description = (TextView) findViewById(outputMap.get("description"));
             TextView address = (TextView) findViewById(outputMap.get("address"));
-            TextView opName = (TextView) findViewById(outputMap.get("venueName"));
-            TextView name = (TextView) findViewById(outputMap.get("venueName"));
-            TextView name = (TextView) findViewById(outputMap.get("venueName"));
-            TextView name = (TextView) findViewById(outputMap.get("venueName"));
+            TextView opName = (TextView) findViewById(outputMap.get("opName"));
+            TextView phoneNumber = (TextView) findViewById(outputMap.get("phoneNumber"));
+            TextView email = (TextView) findViewById(outputMap.get("email"));
+            TextView venueType = (TextView) findViewById(outputMap.get("venueType"));
 
-            name.setText(dm.name);
+            radius.setText(dm.radius);
+            venueName.setText(dm.name);
+            description.setText(dm.description);
+            address.setText(dm.address);
+            opName.setText(dm.operatorName);
+            phoneNumber.setText(dm.phoneNumber);
+            email.setText(dm.email);
+            venueType.setText(dm.venueType);
         }
 
         returnButton = (Button) findViewById(R.id.returnButton);
